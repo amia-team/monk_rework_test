@@ -1,0 +1,31 @@
+// Called from the body technique handler when the technique is cast
+using AmiaReforged.Test.Classes.Monk.Types;
+using Anvil.API;
+using Anvil.API.Events;
+
+
+namespace AmiaReforged.Test.Classes.Monk.Techniques.Body;
+
+public static class EmptyBody
+{
+    public static void CastEmptyBody(OnSpellCast castData)
+    {
+        NwCreature monk = (NwCreature)castData.Caster;
+        PathType? path = MonkUtilFunctions.GetMonkPath(monk);
+        const TechniqueType technique = TechniqueType.EmptyBody;
+
+        if (path != null)
+        {
+            PathEffectApplier.ApplyPathEffects(path, technique, castData);
+            return;
+        }
+
+        int monkLevel = monk.GetClassInfo(ClassType.Monk)!.Level;
+        Effect emptyBodyEffect = Effect.LinkEffects(Effect.Concealment(50), 
+            Effect.VisualEffect(VfxType.DurInvisibility), Effect.VisualEffect(VfxType.DurCessatePositive));
+        emptyBodyEffect.SubType = EffectSubType.Supernatural;
+        TimeSpan effectDuration = NwTimeSpan.FromRounds(monkLevel);
+
+        monk.ApplyEffect(EffectDuration.Temporary, emptyBodyEffect, effectDuration);
+    }
+}

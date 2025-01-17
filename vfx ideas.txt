@@ -1,0 +1,5 @@
+spr_ectonatr01 = magic, energy ball, wind, tinkling chimes, nice for path of the hymn empty body?
+combine with 1046 VFX_DUR_AIR1  
+
+sff_expdholy30 = nice chime sound for path of the hymn wholeness of body?
+combine with VFX_FNF_NATURES_BALANCE 29 (and make the animation shorter)
