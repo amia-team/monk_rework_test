@@ -60,8 +60,8 @@ public class MonkAbilityHandler
         if (eventData.Creature.Area?.GetObjectVariable<LocalVariableInt>("NoCasting").Value is 0) return;
         
         int feat = eventData.Feat.Id;
-        bool isMonkAbility = feat is MonkFeat.EmptyBody || feat is MonkFeat.KiBarrier || feat is MonkFeat.KiShout ||
-             feat is MonkFeat.WholenessOfBody || feat is MonkFeat.QuiveringPalm;
+        bool isMonkAbility = feat is MonkFeat.EmptyBody or MonkFeat.KiBarrier or MonkFeat.KiShout 
+            or MonkFeat.WholenessOfBody or MonkFeat.QuiveringPalm;
         
         if (!isMonkAbility) return;
 
