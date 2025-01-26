@@ -12,7 +12,7 @@ public static class PathEffectApplier
     /// <param name="path"></param> Path from GetMonkPath()
     /// <param name="technique"></param> Technique from which this function was called
     /// <param name="castData"></param> Use for body and spirit techniques
-    /// <param name="attackData"></param> Use for offensive techniques
+    /// <param name="attackData"></param> Use for martial techniques
 
     public static void ApplyPathEffects(PathType? path, TechniqueType technique, OnSpellCast? castData = null, OnCreatureAttack? attackData = null)
     {

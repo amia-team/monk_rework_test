@@ -1,9 +1,9 @@
-// The ability script called by the OffensiveTechniqueService
+// The ability script called by the MartialTechniqueService
 using AmiaReforged.Test.Classes.Monk.Types;
 using Anvil.API;
 using Anvil.API.Events;
 
-namespace AmiaReforged.Test.Classes.Monk.Techniques.Offensive;
+namespace AmiaReforged.Test.Classes.Monk.Techniques.Martial;
 
 public static class AxiomaticStrike
 {
