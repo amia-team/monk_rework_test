@@ -25,13 +25,13 @@ public class SpiritTechniqueHandler
     if (castData.Spell?.FeatReference is null) return;
     if (monk.GetClassInfo(ClassType.Monk) is null) return;
   
-    NwFeat? spiritKiPointFeat = NwFeat.FromFeatId(MonkFeat.SpiritKiPoint);
+    NwFeat spiritKiPointFeat = NwFeat.FromFeatId(MonkFeat.SpiritKiPoint)!;
 
     int technique = castData.Spell.FeatReference.Id;
     bool isSpiritTechnique = technique is MonkFeat.KiShout or MonkFeat.QuiveringPalm;
     if (!isSpiritTechnique) return;
 
-    if (spiritKiPointFeat is null || monk.GetFeatRemainingUses(spiritKiPointFeat) < 1)
+    if (!monk.KnowsFeat(spiritKiPointFeat) || monk.GetFeatRemainingUses(spiritKiPointFeat) < 1)
     {
       castData.PreventSpellCast = true;
       if (monk.IsPlayerControlled(out NwPlayer? player)) player.SendServerMessage

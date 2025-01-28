@@ -29,9 +29,9 @@ public class BodyTechniqueHandler
     bool isBodyTechnique = technique is MonkFeat.EmptyBody or MonkFeat.KiBarrier or MonkFeat.WholenessOfBody;
     if (!isBodyTechnique) return;
     
-    NwFeat? bodyKiPointFeat = NwFeat.FromFeatId(MonkFeat.BodyKiPoint);
+    NwFeat bodyKiPointFeat = NwFeat.FromFeatId(MonkFeat.BodyKiPoint)!;
 
-    if (bodyKiPointFeat is null || monk.GetFeatRemainingUses(bodyKiPointFeat) < 1)
+    if (!monk.KnowsFeat(bodyKiPointFeat) || monk.GetFeatRemainingUses(bodyKiPointFeat) < 1)
     {
       castData.PreventSpellCast = true;
       if (monk.IsPlayerControlled(out NwPlayer? player)) player.SendServerMessage
