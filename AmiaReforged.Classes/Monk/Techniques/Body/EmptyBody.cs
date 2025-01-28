@@ -6,6 +6,9 @@ using Anvil.API.Events;
 
 namespace AmiaReforged.Classes.Monk.Techniques.Body;
 
+/// <summary>
+/// The monk is given 50% concealment for rounds per monk level. Using this technique spends one body ki point. 
+/// </summary>
 public static class EmptyBody
 {
     public static void CastEmptyBody(OnSpellCast castData)
